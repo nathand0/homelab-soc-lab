@@ -11,10 +11,7 @@ I built this lab on a MacBook Pro. My original plan was to use Kali Linux as the
 I simulated a brute force attack by writing a bash loop that fired 20 consecutive SSH login attempts at the Ubuntu VM (192.168.64.11). I used `sshpass` to pass a hardcoded wrong password non-interactively, targeting a fake username that did not exist on the system.
 
 **Attack command I ran in the Ubuntu VM terminal:**
-for i in {1..20}; do
-  sshpass -p "wrongpassword" ssh -o StrictHostKeyChecking=no fakeuser@192.168.64.11 2>/dev/null
-  sleep 0.5
-done
+<img width="817" height="130" alt="image" src="https://github.com/user-attachments/assets/da5eb4ba-cfc4-4e93-986f-dfa442ab0a23" />
 
 
 When I sent this, the terminal went into a loading phase for about 10 to 15 seconds while it ran through all 20 attempts. Every attempt was rejected by the SSH server since the user did not exist, and each failure got written to `/var/log/auth.log`.
@@ -23,9 +20,8 @@ When I sent this, the terminal went into a loading phase for about 10 to 15 seco
 
 ## Logs Found in Splunk
 
-I accessed Splunk from my MacBook browser while the Ubuntu VM ran in the background. After the attack finished I ran the following search in Splunk:
+<img width="1512" height="859" alt="image" src="https://github.com/user-attachments/assets/5f0065d5-1106-49de-8f92-05a7218063fc" />
 
-index=main sourcetype=linux_secure "Failed password"
 
 **What showed up in the logs** (repeated 20 times):
 Failed password for invalid user fakeuser from 192.168.64.11 port XXXXX ssh2
@@ -36,6 +32,9 @@ Connection closed by invalid user fakeuser 192.168.64.11
 
 **Total events in Splunk at time of detection:** 192 events  
 **Source:** /var/log/auth.log | **Sourcetype:** linux_secure
+
+<img width="1244" height="421" alt="image" src="https://github.com/user-attachments/assets/74fee96c-8f3d-4bd8-b0a1-c4cddb919102" />
+
 
 Seeing these flood into Splunk in real time was the moment the lab clicked for me. I could watch exactly what the attack looked like from a defender's perspective.
 
