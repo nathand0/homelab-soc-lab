@@ -6,17 +6,17 @@ A personal cybersecurity homelab where I built a SIEM environment to simulate, d
 - **SIEM:** Splunk (free tier) ingesting `/var/log/auth.log` and syslog
 - **Host:** macOS (Splunk web UI accessed from host)
 
-## ⚔️ Attacks Simulated
+## Attacks Simulated
 | # | Attack | Tool | Severity | Status |
 |---|--------|------|----------|--------|
-| 1 | SSH Brute Force | sshpass + bash loop | 🔴 HIGH | Detected |
-| 2 | Port Scan / Recon | Nmap -sS -A -T4 | 🟡 MEDIUM | Detected |
+| 1 | SSH Brute Force | sshpass + bash loop |  HIGH | Detected |
+| 2 | Port Scan / Recon | Nmap -sS -A -T4 |  MEDIUM | Detected |
 
-## 📋 Incident Reports
+## Incident Reports
 - [IR-2026-001 — SSH Brute Force](attacks/ssh-brute-force.md)
 - [IR-2026-002 — Nmap Port Scan](attacks/nmap-port-scan.md)
 
-## 🛠️ Skills Demonstrated
+## Skills Demonstrated
 - Linux system administration and VM setup
 - SIEM configuration and log ingestion (Splunk)
 - Attack simulation and detection
