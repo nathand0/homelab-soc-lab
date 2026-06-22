@@ -14,7 +14,7 @@ A personal cybersecurity homelab where I built a SIEM environment to simulate, d
 
 ## Incident Reports
 - [SSH Brute Force](attacks/ssh-brute-force.md)
-- [Nmap Port Scan](attacks/nmap-port-scan)
+- [Nmap Port Scan](attacks/nmap-port-scan.md)
 
 ## Skills Demonstrated
 - Linux system administration and VM setup
