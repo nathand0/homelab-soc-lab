@@ -10,8 +10,12 @@ Since I was working on a MacBook Pro without Kali Linux, I ran this scan from in
 
 I ran a Nmap scan against the Ubuntu VM to simulate what a real attacker would do before attempting to break in. The goal was to map out open ports, fingerprint the OS, and identify the exact software version running on each service.
 
+<img width="819" height="443" alt="image" src="https://github.com/user-attachments/assets/9e1744ac-0e64-4ff3-9441-733bf4216775" />
+
 
 ## Logs Found in Splunk
+
+<img width="1510" height="859" alt="image" src="https://github.com/user-attachments/assets/03b8ad71-2537-444b-9ec4-017ee1e27d75" />
 
 Nmap's SYN scan never completes a full TCP handshake so it does not generate normal connection logs. However I could still see evidence of it in Splunk through `/var/log/auth.log`. The SSH daemon logged the probe attempts Nmap made when running its scripts against port 22.
 
@@ -19,6 +23,8 @@ I accessed Splunk from my MacBook browser and ran these searches:
 
 **Primary search (282 events returned):**
 index=main source="/var/log/auth.log"
+
+<img width="1083" height="474" alt="image" src="https://github.com/user-attachments/assets/ee266ed5-7283-4e69-9b0d-8d316ee6db3d" />
 
 ## Incident Response
 
