@@ -35,13 +35,13 @@ Invalid user fakeuser from 192.168.64.11
 Connection closed by invalid user fakeuser 192.168.64.11
 
 **Total events in Splunk at time of detection:** 192 events  
-**Source:** `/var/log/auth.log` | **Sourcetype:** `linux_secure`
+**Source:** /var/log/auth.log | **Sourcetype:** linux_secure
 
 Seeing these flood into Splunk in real time was the moment the lab clicked for me. I could watch exactly what the attack looked like from a defender's perspective.
 
 ### Key Indicators of Compromise
 - 20 failed SSH logins within approximately 10 seconds
-- All attempts targeting the same non-existent username (`fakeuser`)
+- All attempts targeting the same non-existent username (fakeuser)
 - Consistent 0.5 second spacing, clearly scripted and not a human typing
 - Source and destination IP both 192.168.64.11 (loopback in this lab setup)
 
